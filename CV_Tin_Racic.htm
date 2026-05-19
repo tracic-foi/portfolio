@@ -1,15 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script type="module">import { injectIntoGlobalHook } from "/portfolio/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="/portfolio/@vite/client"></script>
+
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Tin Račić — Full-Stack Developer based in Croatia." />
     <title>Tin Račić</title>
-    <script type="module" crossorigin src="/portfolio/assets/index-DQyMre10.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-CMviHrxI.css">
   </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/portfolio/src/main.tsx"></script>
   </body>
 </html>
