@@ -7,30 +7,20 @@ export default function Contact() {
       <section id="contact">
         <div className="section-wrap">
           <div className={styles.inner}>
-            <p className={styles.overline}>05. What's Next?</p>
+            <p className={styles.overline}>What's Next?</p>
             <h2 className={styles.heading}>Get In Touch</h2>
             <p className={styles.body}>
-              Whether you have an opportunity, a project idea, or just want to say hi — my
-              inbox is always open. I'll do my best to get back to you!
+              Whether you have an opportunity, a project idea, or just want to say hi —
+              my inbox is always open. I'll do my best to get back to you!
             </p>
-            <a href={`mailto:${personal.email}`} className={styles.emailBtn}>
+            <a href={`mailto:${personal.email}`} className={styles.btn}>
               Say Hello
             </a>
             <div className={styles.socials}>
-              <a
-                href={personal.github}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.socialLink}
-              >
+              <a href={personal.github} target="_blank" rel="noreferrer" className={styles.socialLink}>
                 <GithubIcon /> GitHub
               </a>
-              <a
-                href={personal.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.socialLink}
-              >
+              <a href={personal.linkedin} target="_blank" rel="noreferrer" className={styles.socialLink}>
                 <LinkedinIcon /> LinkedIn
               </a>
             </div>

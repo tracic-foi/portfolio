@@ -6,7 +6,7 @@ export default function About() {
     <section id="about">
       <div className="section-wrap">
         <h2 className="section-title">
-          <span className="section-number">01.</span> About Me
+          About Me
         </h2>
         <div className={styles.content}>
           <div className={styles.text}>

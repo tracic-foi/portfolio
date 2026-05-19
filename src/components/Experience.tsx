@@ -10,7 +10,7 @@ export default function Experience() {
     <section id="experience" style={{ background: 'var(--light-navy)' }}>
       <div className="section-wrap">
         <h2 className="section-title">
-          <span className="section-number">02.</span> Where I've Worked
+          Where I've Worked
         </h2>
         <div className={styles.container}>
           <ul className={styles.tabs} role="tablist">
