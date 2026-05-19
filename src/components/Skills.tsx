@@ -3,7 +3,7 @@ import styles from './Skills.module.css'
 
 export default function Skills() {
   return (
-    <section id="skills">
+    <section id="skills" style={{ background: 'var(--light-navy)' }}>
       <div className="section-wrap">
         <h2 className="section-title">
           <span className="section-number">04.</span> Skills

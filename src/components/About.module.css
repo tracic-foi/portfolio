@@ -20,9 +20,28 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   position: sticky;
   top: 90px;
+}
+
+.photoWrap {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 24px rgba(100, 255, 218, 0.15), 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(20%) contrast(1.05);
+  transition: filter 0.3s;
+}
+
+.photo:hover {
+  filter: none;
 }
 
 .sideTitle {

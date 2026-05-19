@@ -35,10 +35,9 @@ export default function Navbar() {
         </button>
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>
-          {navLinks.map(({ label, href }, i) => (
+          {navLinks.map(({ label, href }) => (
             <li key={href}>
               <a href={href} onClick={() => setOpen(false)}>
-                <span className={styles.num}>0{i + 1}.</span>
                 {label}
               </a>
             </li>

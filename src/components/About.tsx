@@ -43,20 +43,10 @@ export default function About() {
             <div>
               <p className={styles.sideTitle}>Links</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <a
-                  href={personal.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.socialLink}
-                >
+                <a href={personal.github} target="_blank" rel="noreferrer" className={styles.socialLink}>
                   <GithubIcon /> GitHub
                 </a>
-                <a
-                  href={personal.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={styles.socialLink}
-                >
+                <a href={personal.linkedin} target="_blank" rel="noreferrer" className={styles.socialLink}>
                   <LinkedinIcon /> LinkedIn
                 </a>
                 <a href={`mailto:${personal.email}`} className={styles.socialLink}>

@@ -5,16 +5,23 @@
 }
 
 .group {
-  background: var(--light-navy);
-  border: 1px solid var(--lightest-navy);
-  border-radius: 8px;
+  background: rgba(10, 25, 47, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
   padding: 24px;
+  transition: border-color 0.25s;
+}
+
+.group:hover {
+  border-color: var(--accent2);
 }
 
 .groupTitle {
   font-size: 0.8rem;
   font-family: 'SF Mono', 'Fira Code', monospace;
-  color: var(--accent);
+  color: var(--accent2);
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 16px;

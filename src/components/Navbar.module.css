@@ -40,8 +40,9 @@
 
 .links a {
   color: var(--light-slate);
-  font-size: 0.875rem;
+  font-size: 1rem;
   transition: color 0.2s;
+  letter-spacing: 0.3px;
 }
 
 .links a:hover {
@@ -49,12 +50,6 @@
   opacity: 1 !important;
 }
 
-.num {
-  color: var(--accent);
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  font-size: 0.8rem;
-  margin-right: 4px;
-}
 
 .burger {
   display: none;
@@ -95,5 +90,5 @@
   }
 
   .links.open { display: flex; }
-  .links a { font-size: 1.1rem; }
+  .links a { font-size: 1.25rem; }
 }

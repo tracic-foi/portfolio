@@ -1,4 +1,6 @@
 .hero {
+  position: relative;
+  overflow: hidden;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -7,6 +9,27 @@
   padding-inline: 24px;
   max-width: var(--max-width);
   margin: 0 auto;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(100, 255, 218, 0.09) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 70% 80% at 80% 40%, black 0%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 80% 40%, black 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.greeting,
+.name,
+.tagline,
+.description,
+.ctas {
+  position: relative;
+  z-index: 1;
 }
 
 .greeting {

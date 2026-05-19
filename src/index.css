@@ -10,6 +10,8 @@
   --white: #e6f1ff;
   --accent: #64ffda;
   --accent-tint: rgba(100, 255, 218, 0.08);
+  --accent2: #a78bfa;
+  --accent2-tint: rgba(167, 139, 250, 0.08);
   --nav-height: 70px;
   --max-width: 1000px;
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -68,8 +70,9 @@ a:hover {
   content: '';
   display: block;
   height: 1px;
-  background: var(--lightest-navy);
+  background: linear-gradient(to right, var(--accent), var(--accent2), transparent);
   flex: 1;
+  opacity: 0.5;
 }
 
 .section-number {
