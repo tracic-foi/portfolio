@@ -1,0 +1,123 @@
+.container {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px;
+}
+
+.tabs {
+  list-style: none;
+  border-left: 2px solid var(--lightest-navy);
+}
+
+.tab {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  padding: 12px 16px;
+  color: var(--slate);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: inherit;
+}
+
+.tab:hover {
+  background: var(--accent-tint);
+  color: var(--accent);
+}
+
+.active {
+  border-left-color: var(--accent) !important;
+  color: var(--accent);
+  background: var(--accent-tint);
+}
+
+.panel {
+  padding: 4px 0 4px 16px;
+}
+
+.role {
+  font-size: 1.2rem;
+  color: var(--lightest-slate);
+  margin-bottom: 4px;
+}
+
+.company {
+  color: var(--accent);
+}
+
+.period {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--slate);
+  margin-bottom: 24px;
+}
+
+.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.bullets li {
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.65;
+  font-size: 0.975rem;
+}
+
+.bullets li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.techRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs {
+    border-left: none;
+    border-bottom: 2px solid var(--lightest-navy);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar { display: none; }
+
+  .tab {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    margin-left: 0;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .active {
+    border-left-color: transparent !important;
+    border-bottom-color: var(--accent) !important;
+  }
+
+  .panel {
+    padding: 20px 0 0;
+  }
+}

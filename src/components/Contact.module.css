@@ -1,0 +1,70 @@
+.inner {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.overline {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.875rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--lightest-slate);
+  margin-bottom: 20px;
+}
+
+.body {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.emailBtn {
+  display: inline-block;
+  padding: 18px 36px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: var(--accent);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+  margin-bottom: 48px;
+}
+
+.emailBtn:hover {
+  background: var(--accent-tint);
+  opacity: 1 !important;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+.socialLink {
+  color: var(--light-slate);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.socialLink:hover {
+  color: var(--accent);
+  opacity: 1 !important;
+}
+
+.footer {
+  padding: 24px;
+  text-align: center;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: var(--slate);
+}
