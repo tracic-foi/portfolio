@@ -64,6 +64,7 @@ export interface ProjectItem {
   description: string
   tech: string[]
   iconKey: 'web' | 'mobile' | 'renderer' | 'game'
+  color: string
   github?: string
 }
 
@@ -72,6 +73,7 @@ export const projects: ProjectItem[] = [
     title: 'Full-Stack Web Application',
     year: '2025',
     iconKey: 'web',
+    color: '#38bdf8',
     description:
       'Full-stack platform using Angular and Nest.js (TypeScript). Designed REST APIs and relational database models for user management, authentication, and reporting. Integrated the TMDB API for third-party data.',
     tech: ['Angular', 'TypeScript', 'Nest.js', 'REST API'],
@@ -80,6 +82,7 @@ export const projects: ProjectItem[] = [
     title: 'Android & Desktop Apps',
     year: '2025',
     iconKey: 'mobile',
+    color: '#4ade80',
     description:
       'Interconnected Android (Kotlin) and Desktop (C#/.NET) apps sharing a unified web service and database, implementing real-time sync and CRUD. Translated Figma prototypes into pixel-perfect UIs.',
     tech: ['Kotlin', 'C#', '.NET', 'Android Studio', 'Figma'],
@@ -88,6 +91,7 @@ export const projects: ProjectItem[] = [
     title: '3D Scene Renderer',
     year: '2024',
     iconKey: 'renderer',
+    color: '#fb923c',
     description:
       'Custom 3D rendering engine implementing the camera/perspective matrix pipeline. Translated the Phong reflection model into custom GLSL shaders and applied texture mapping with UV coordinates.',
     tech: ['Python', 'PyOpenGL', 'Pygame', 'GLSL'],
@@ -96,11 +100,14 @@ export const projects: ProjectItem[] = [
     title: 'MMORPG SpriteStacking Game',
     year: '2023',
     iconKey: 'game',
+    color: '#f472b6',
     description:
       'Core game systems for animation, sprite stacking, and multiplayer interaction. Built the backend with database support and web services handling player data and networking.',
     tech: ['C#', 'PyGame', 'PostgreSQL', 'REST API', 'SQL'],
   },
 ]
+
+export const heroPhrases = ['for the web.', 'for mobile.', 'for games.', 'with care.']
 
 export const skills: Record<string, string[]> = {
   Languages: ['TypeScript', 'JavaScript', 'Python', 'C#', 'Kotlin', 'Dart', 'SQL', 'GLSL', 'Java'],

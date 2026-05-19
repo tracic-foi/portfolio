@@ -1,13 +1,15 @@
 import { personal } from '../data'
+import FadeIn from './FadeIn'
 import styles from './About.module.css'
 
 export default function About() {
   return (
     <section id="about">
       <div className="section-wrap">
-        <h2 className="section-title">
-          About Me
-        </h2>
+        <FadeIn>
+          <h2 className="section-title">About Me</h2>
+        </FadeIn>
+        <FadeIn delay={0.1}>
         <div className={styles.content}>
           <div className={styles.text}>
             <p>
@@ -56,6 +58,7 @@ export default function About() {
             </div>
           </div>
         </div>
+        </FadeIn>
       </div>
     </section>
   )

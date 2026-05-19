@@ -6,10 +6,13 @@ import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
+import ScrollProgress from './components/ScrollProgress'
+import BackToTop from './components/BackToTop'
 
 function App() {
   return (
     <>
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />
@@ -19,6 +22,7 @@ function App() {
         <Skills />
         <Contact />
       </main>
+      <BackToTop />
     </>
   )
 }

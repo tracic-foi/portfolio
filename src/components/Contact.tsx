@@ -1,4 +1,5 @@
 import { personal } from '../data'
+import FadeIn from './FadeIn'
 import styles from './Contact.module.css'
 
 export default function Contact() {
@@ -6,6 +7,7 @@ export default function Contact() {
     <>
       <section id="contact">
         <div className="section-wrap">
+          <FadeIn>
           <div className={styles.inner}>
             <p className={styles.overline}>What's Next?</p>
             <h2 className={styles.heading}>Get In Touch</h2>
@@ -25,6 +27,7 @@ export default function Contact() {
               </a>
             </div>
           </div>
+          </FadeIn>
         </div>
       </section>
       <footer className={styles.footer}>

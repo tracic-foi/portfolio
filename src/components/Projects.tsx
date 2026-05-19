@@ -1,6 +1,8 @@
-import type { ReactElement } from 'react'
+import type { CSSProperties, ReactElement } from 'react'
+import { motion } from 'framer-motion'
 import type { ProjectItem } from '../data'
 import { projects } from '../data'
+import FadeIn from './FadeIn'
 import styles from './Projects.module.css'
 
 const icons: Record<ProjectItem['iconKey'], ReactElement> = {
@@ -39,10 +41,21 @@ export default function Projects() {
   return (
     <section id="projects">
       <div className="section-wrap">
-        <h2 className="section-title">Things I've Built</h2>
+        <FadeIn>
+          <h2 className="section-title">Things I've Built</h2>
+        </FadeIn>
         <div className={styles.grid}>
-          {projects.map((p) => (
-            <div key={p.title} className={styles.card}>
+          {projects.map((p, i) => (
+            <motion.div
+              key={p.title}
+              className={styles.card}
+              style={{ '--card-color': p.color } as CSSProperties}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: 'easeOut' }}
+              whileHover={{ y: -6 }}
+            >
               <div className={styles.cardTop}>
                 <span className={styles.icon}>{icons[p.iconKey]}</span>
                 <span className={styles.year}>{p.year}</span>
@@ -51,10 +64,10 @@ export default function Projects() {
               <p className={styles.description}>{p.description}</p>
               <div className={styles.tech}>
                 {p.tech.map((t) => (
-                  <span key={t} className="tag">{t}</span>
+                  <span key={t} className={styles.techTag}>{t}</span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

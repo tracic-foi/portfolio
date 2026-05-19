@@ -23,13 +23,26 @@
   z-index: 0;
 }
 
-.greeting,
-.name,
-.tagline,
-.description,
-.ctas {
+.content {
   position: relative;
   z-index: 1;
+}
+
+.rotator {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  min-width: 7ch;
+  overflow: visible;
+}
+
+.rotatorWord {
+  display: inline-block;
+  color: var(--accent);
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .greeting {

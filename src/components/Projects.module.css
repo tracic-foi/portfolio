@@ -5,6 +5,8 @@
 }
 
 .card {
+  --card-color: var(--accent);
+  position: relative;
   background: rgba(17, 34, 64, 0.5);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -14,13 +16,30 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0% 0%, var(--card-color) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+  mix-blend-mode: overlay;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
-  box-shadow: 0 12px 40px rgba(100, 255, 218, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4);
+  border-color: var(--card-color);
+  box-shadow:
+    0 12px 40px color-mix(in srgb, var(--card-color) 18%, transparent),
+    0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.card:hover::before {
+  opacity: 0.15;
 }
 
 .cardTop {
@@ -28,11 +47,13 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
+  position: relative;
 }
 
-.folderIcon {
-  color: var(--accent);
+.icon {
+  color: var(--card-color);
   flex-shrink: 0;
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--card-color) 35%, transparent));
 }
 
 .year {
@@ -43,15 +64,22 @@
 }
 
 .title {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: var(--lightest-slate);
   font-weight: 600;
+  position: relative;
+  transition: color 0.25s;
+}
+
+.card:hover .title {
+  color: var(--card-color);
 }
 
 .description {
   font-size: 0.9rem;
   line-height: 1.65;
   flex: 1;
+  position: relative;
 }
 
 .tech {
@@ -59,6 +87,17 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-top: auto;
+  position: relative;
+}
+
+.techTag {
+  background: color-mix(in srgb, var(--card-color) 8%, transparent);
+  color: var(--card-color);
+  border: 1px solid color-mix(in srgb, var(--card-color) 25%, transparent);
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-family: 'SF Mono', 'Fira Code', monospace;
 }
 
 @media (max-width: 640px) {
