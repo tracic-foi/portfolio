@@ -1,63 +1,66 @@
 import { personal } from '../data'
+import { useT } from '../i18n/LangContext'
 import FadeIn from './FadeIn'
 import styles from './About.module.css'
 
 export default function About() {
+  const t = useT()
   return (
     <section id="about">
       <div className="section-wrap">
         <FadeIn>
-          <h2 className="section-title">About Me</h2>
+          <h2 className="section-title">{t.about.title}</h2>
         </FadeIn>
         <FadeIn delay={0.1}>
-        <div className={styles.content}>
-          <div className={styles.text}>
-            <p>
-              I'm a software developer based in Croatia with a strong foundation in full-stack
-              development. I'm currently a selected participant at the{' '}
-              <strong>Sofascore Frontend Academy</strong>, where I work alongside mentors and
-              engineers on real-world projects using React, TypeScript, and modern frontend
-              architecture.
-            </p>
-            <p>
-              I hold a <strong>Bachelor's degree in Informatics</strong> from the Faculty of
-              Organization and Informatics, University of Zagreb. My background spans web, desktop,
-              and mobile — from architecting secure WebSocket messaging systems at Uvea to
-              building a 3D renderer with custom GLSL shaders from scratch.
-            </p>
-            <p>
-              I like working across the whole stack and care deeply about clean code, good UX,
-              and shipping things that actually work. Outside of coding, you'll find me at
-              the gym, hiking, or cooking.
-            </p>
-          </div>
-
-          <div className={styles.sidebar}>
-            <div>
-              <p className={styles.sideTitle}>Education</p>
-              <div className={styles.eduCard}>
-                <p className={styles.eduInst}>Faculty of Organization and Informatics</p>
-                <p className={styles.eduDeg}>Bachelor of Informatics</p>
-                <p className={styles.eduYear}>University of Zagreb · 2026</p>
-              </div>
+          <div className={styles.content}>
+            <div className={styles.text}>
+              <p>
+                {t.about.p1prefix}
+                <strong>{t.about.p1highlight}</strong>
+                {t.about.p1suffix}
+              </p>
+              <p>
+                {t.about.p2prefix}
+                <strong>{t.about.p2highlight}</strong>
+                {t.about.p2suffix}
+              </p>
+              <p>{t.about.p3}</p>
             </div>
 
-            <div>
-              <p className={styles.sideTitle}>Links</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <a href={personal.github} target="_blank" rel="noreferrer" className={styles.socialLink}>
-                  <GithubIcon /> GitHub
-                </a>
-                <a href={personal.linkedin} target="_blank" rel="noreferrer" className={styles.socialLink}>
-                  <LinkedinIcon /> LinkedIn
-                </a>
-                <a href={`mailto:${personal.email}`} className={styles.socialLink}>
-                  <MailIcon /> {personal.email}
-                </a>
+            <div className={styles.sidebar}>
+              <div>
+                <p className={styles.sideTitle}>{t.about.education}</p>
+                <div className={styles.eduCard}>
+                  <p className={styles.eduInst}>{t.about.eduInstitution}</p>
+                  <p className={styles.eduDeg}>{t.about.eduDegree}</p>
+                  <p className={styles.eduYear}>{t.about.eduMeta}</p>
+                </div>
+              </div>
+
+              <div>
+                <p className={styles.sideTitle}>{t.about.links}</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  <a href={personal.github} target="_blank" rel="noreferrer" className={styles.socialLink} data-cursor="hover">
+                    <GithubIcon /> GitHub
+                  </a>
+                  <a href={personal.linkedin} target="_blank" rel="noreferrer" className={styles.socialLink} data-cursor="hover">
+                    <LinkedinIcon /> LinkedIn
+                  </a>
+                  <a href={`mailto:${personal.email}`} className={styles.socialLink} data-cursor="hover">
+                    <MailIcon /> {personal.email}
+                  </a>
+                  <a
+                    href={`${import.meta.env.BASE_URL}${personal.resumeFile}`}
+                    download
+                    className={styles.socialLink}
+                    data-cursor="hover"
+                  >
+                    <DownloadIcon /> {t.about.resume}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </FadeIn>
       </div>
     </section>
@@ -85,6 +88,16 @@ function MailIcon() {
     <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden>
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
+    </svg>
+  )
+}
+
+function DownloadIcon() {
+  return (
+    <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden>
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="7 10 12 15 17 10" />
+      <line x1="12" y1="15" x2="12" y2="3" />
     </svg>
   )
 }

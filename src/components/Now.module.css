@@ -1,0 +1,72 @@
+.subtitle {
+  color: var(--slate);
+  font-size: 1rem;
+  margin-top: -32px;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  transition: border-color 0.25s;
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.dot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  display: block;
+}
+
+.label {
+  font-size: 0.78rem;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.text {
+  font-size: 0.95rem;
+  color: var(--light-slate);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+}

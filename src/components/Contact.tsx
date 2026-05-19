@@ -1,38 +1,35 @@
 import { personal } from '../data'
+import { useT } from '../i18n/LangContext'
 import FadeIn from './FadeIn'
 import styles from './Contact.module.css'
 
 export default function Contact() {
+  const t = useT()
   return (
     <>
       <section id="contact">
         <div className="section-wrap">
           <FadeIn>
-          <div className={styles.inner}>
-            <p className={styles.overline}>What's Next?</p>
-            <h2 className={styles.heading}>Get In Touch</h2>
-            <p className={styles.body}>
-              Whether you have an opportunity, a project idea, or just want to say hi —
-              my inbox is always open. I'll do my best to get back to you!
-            </p>
-            <a href={`mailto:${personal.email}`} className={styles.btn}>
-              Say Hello
-            </a>
-            <div className={styles.socials}>
-              <a href={personal.github} target="_blank" rel="noreferrer" className={styles.socialLink}>
-                <GithubIcon /> GitHub
+            <div className={styles.inner}>
+              <p className={styles.overline}>{t.contact.overline}</p>
+              <h2 className={styles.heading}>{t.contact.title}</h2>
+              <p className={styles.body}>{t.contact.body}</p>
+              <a href={`mailto:${personal.email}`} className={styles.btn} data-cursor="hover">
+                {t.contact.cta}
               </a>
-              <a href={personal.linkedin} target="_blank" rel="noreferrer" className={styles.socialLink}>
-                <LinkedinIcon /> LinkedIn
-              </a>
+              <div className={styles.socials}>
+                <a href={personal.github} target="_blank" rel="noreferrer" className={styles.socialLink} data-cursor="hover">
+                  <GithubIcon /> GitHub
+                </a>
+                <a href={personal.linkedin} target="_blank" rel="noreferrer" className={styles.socialLink} data-cursor="hover">
+                  <LinkedinIcon /> LinkedIn
+                </a>
+              </div>
             </div>
-          </div>
           </FadeIn>
         </div>
       </section>
-      <footer className={styles.footer}>
-        Designed &amp; Built by Tin Račić
-      </footer>
+      <footer className={styles.footer}>{t.contact.footer}</footer>
     </>
   )
 }

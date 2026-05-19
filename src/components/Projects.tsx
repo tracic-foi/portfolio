@@ -1,11 +1,12 @@
 import type { CSSProperties, ReactElement } from 'react'
 import { motion } from 'framer-motion'
-import type { ProjectItem } from '../data'
-import { projects } from '../data'
+import type { ProjectId } from '../data'
+import { projectMeta } from '../data'
+import { useT } from '../i18n/LangContext'
 import FadeIn from './FadeIn'
 import styles from './Projects.module.css'
 
-const icons: Record<ProjectItem['iconKey'], ReactElement> = {
+const icons: Record<ProjectId, ReactElement> = {
   web: (
     <svg width="36" height="36" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden>
       <circle cx="12" cy="12" r="10" />
@@ -38,16 +39,17 @@ const icons: Record<ProjectItem['iconKey'], ReactElement> = {
 }
 
 export default function Projects() {
+  const t = useT()
   return (
     <section id="projects">
       <div className="section-wrap">
         <FadeIn>
-          <h2 className="section-title">Things I've Built</h2>
+          <h2 className="section-title">{t.projects.title}</h2>
         </FadeIn>
         <div className={styles.grid}>
-          {projects.map((p, i) => (
+          {projectMeta.map((p, i) => (
             <motion.div
-              key={p.title}
+              key={p.id}
               className={styles.card}
               style={{ '--card-color': p.color } as CSSProperties}
               initial={{ opacity: 0, y: 30 }}
@@ -55,16 +57,17 @@ export default function Projects() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: 'easeOut' }}
               whileHover={{ y: -6 }}
+              data-cursor="hover"
             >
               <div className={styles.cardTop}>
-                <span className={styles.icon}>{icons[p.iconKey]}</span>
+                <span className={styles.icon}>{icons[p.id]}</span>
                 <span className={styles.year}>{p.year}</span>
               </div>
-              <h3 className={styles.title}>{p.title}</h3>
-              <p className={styles.description}>{p.description}</p>
+              <h3 className={styles.title}>{t.projects.items[p.id].title}</h3>
+              <p className={styles.description}>{t.projects.items[p.id].description}</p>
               <div className={styles.tech}>
-                {p.tech.map((t) => (
-                  <span key={t} className={styles.techTag}>{t}</span>
+                {p.tech.map((tech) => (
+                  <span key={tech} className={styles.techTag}>{tech}</span>
                 ))}
               </div>
             </motion.div>

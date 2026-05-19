@@ -1,18 +1,25 @@
 import { useEffect, useState } from 'react'
+import { useT } from '../i18n/LangContext'
+import LangToggle from './LangToggle'
+import ThemeToggle from './ThemeToggle'
 import styles from './Navbar.module.css'
 
-const navLinks = [
-  { label: 'About', href: '#about', id: 'about' },
-  { label: 'Experience', href: '#experience', id: 'experience' },
-  { label: 'Projects', href: '#projects', id: 'projects' },
-  { label: 'Skills', href: '#skills', id: 'skills' },
-  { label: 'Contact', href: '#contact', id: 'contact' },
-]
+const SECTION_IDS = ['about', 'now', 'experience', 'projects', 'skills', 'contact'] as const
 
 export default function Navbar() {
+  const t = useT()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [activeId, setActiveId] = useState<string>('')
+
+  const navLinks = [
+    { label: t.nav.about, href: '#about', id: 'about' },
+    { label: t.nav.now, href: '#now', id: 'now' },
+    { label: t.nav.experience, href: '#experience', id: 'experience' },
+    { label: t.nav.projects, href: '#projects', id: 'projects' },
+    { label: t.nav.skills, href: '#skills', id: 'skills' },
+    { label: t.nav.contact, href: '#contact', id: 'contact' },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -21,8 +28,8 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const sections = navLinks
-      .map(({ id }) => document.getElementById(id))
+    const sections = SECTION_IDS
+      .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null)
 
     const observer = new IntersectionObserver(
@@ -42,7 +49,7 @@ export default function Navbar() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <nav className={styles.nav}>
-        <a href="#hero" className={styles.logo}>TR</a>
+        <a href="#hero" className={styles.logo} data-cursor="hover">TR</a>
 
         <button
           className={`${styles.burger} ${open ? styles.open : ''}`}
@@ -54,19 +61,26 @@ export default function Navbar() {
           <span />
         </button>
 
-        <ul className={`${styles.links} ${open ? styles.open : ''}`}>
-          {navLinks.map(({ label, href, id }) => (
-            <li key={href}>
-              <a
-                href={href}
-                onClick={() => setOpen(false)}
-                className={activeId === id ? styles.active : ''}
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className={`${styles.right} ${open ? styles.open : ''}`}>
+          <ul className={styles.links}>
+            {navLinks.map(({ label, href, id }) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className={activeId === id ? styles.active : ''}
+                  data-cursor="hover"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className={styles.toggles}>
+            <LangToggle />
+            <ThemeToggle />
+          </div>
+        </div>
       </nav>
     </header>
   )
